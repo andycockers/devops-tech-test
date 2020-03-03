@@ -1,0 +1,5 @@
+- name: Install gcc
+  become: true
+  yum:
+    name: gcc
+    state: latest

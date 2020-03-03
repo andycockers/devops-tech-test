@@ -1,0 +1,7 @@
+- name: Install certbot
+  become: true
+  yum:
+    name: 
+      - "certbot"
+      - "python2-certbot-nginx"
+    state: present

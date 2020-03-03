@@ -1,0 +1,7 @@
+- name: Install mysql client which is required for connecting
+  become: true
+  yum:
+    name:
+      - mysql
+      - mysql-devel
+    state: present

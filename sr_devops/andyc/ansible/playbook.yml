@@ -1,0 +1,15 @@
+---
+- hosts: aws
+  
+  roles:
+  - role: python3
+  - role: yum-upgrade
+  - role: epel
+  - role: nginx
+  - role: certbot
+  - role: mysql
+  - role: gcc
+  - role: mezzanine
+  - role: gunicorn
+  - role: openssl
+  - role: nano

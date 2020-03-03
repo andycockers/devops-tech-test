@@ -1,0 +1,22 @@
+- name: Install mezzanine cms and deps using pip3
+  become: true
+  pip:
+    name: 
+      - mezzanine
+      - mysqlclient
+      - django-extensions
+    executable: pip3
+
+- name: Create new Mezzanine project
+  shell: cd /home/centos && mezzanine-project cms
+
+- name: copy local_settings.py
+  copy:
+    src: local_settings.py
+    dest: /home/centos/cms/cms
+    owner: centos
+    group: centos
+    mode: 0600
+
+- name: Create new Mezzanine database
+  shell: cd /home/centos/cms && python3 manage.py createdb --nodata --noinput

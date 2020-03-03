@@ -1,0 +1,28 @@
+- name: Install gunicorn to run mezzanine as a service
+  become: true
+  pip:
+    name: 
+      - gunicorn
+    executable: pip3
+
+- name: copy gunicorn.service
+  become: true
+  copy:
+    src: gunicorn.service
+    dest: /etc/systemd/system
+    owner: centos
+    group: centos
+    mode: 0600
+
+- name: enable service gunicorn
+  become: true
+  systemd:
+    name: gunicorn
+    enabled: yes
+    masked: no
+
+- name: start service gunicorn
+  become: true
+  systemd:
+    state: started
+    name: gunicorn

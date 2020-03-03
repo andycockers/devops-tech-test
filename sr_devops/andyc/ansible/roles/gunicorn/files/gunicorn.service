@@ -1,0 +1,16 @@
+[Unit]
+
+Description=gunicorn daemon
+
+After=network.target
+
+[Service] 
+User=centos
+Group=centos
+
+WorkingDirectory=/home/centos/cms
+
+ExecStart=/usr/local/bin/gunicorn --access-logfile - --workers 3 --bind unix:/home/centos/cms/cms.sock cms.wsgi:application
+
+[Install] 
+WantedBy=multi-user.target 

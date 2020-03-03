@@ -1,0 +1,6 @@
+- name: Install Nano which is my favourite Linux text editor
+  become: true
+  yum:
+    name:
+      - nano
+    state: present

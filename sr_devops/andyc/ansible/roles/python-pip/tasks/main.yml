@@ -1,0 +1,11 @@
+- name: Install python-pip
+  become: true
+  yum:
+    name: "python-pip"
+    state: present
+
+- name: Upgrade pip
+  become: true
+  pip:
+    name: pip
+    extra_args: --upgrade

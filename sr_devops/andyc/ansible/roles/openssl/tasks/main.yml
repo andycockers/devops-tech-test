@@ -1,0 +1,34 @@
+#Creates self signed certs
+- name: Create letsencrypt folders
+  become: true
+  file: 
+    path: /etc/letsencrypt/live/localhost
+    state: directory
+    mode: '755'
+
+- name: Create ssl folder
+  become: true
+  file: 
+    path: /etc/ssl/private
+    state: directory
+    mode: '755'
+
+- name: Generate an OpenSSL private key.
+  become: true
+  openssl_privatekey:
+    path: /etc/letsencrypt/live/localhost/privkey.pem
+
+- name: Generate an OpenSSL CSR.
+  become: true
+  openssl_csr:
+    path: /etc/ssl/private/localhost.csr
+    privatekey_path: /etc/letsencrypt/live/localhost/privkey.pem
+    common_name: localhost
+
+- name: Generate a Self Signed OpenSSL certificate.
+  become: true
+  openssl_certificate:
+    path: /etc/letsencrypt/live/localhost/fullchain.pem
+    privatekey_path: /etc/letsencrypt/live/localhost/privkey.pem
+    csr_path: /etc/ssl/private/localhost.csr
+    provider: selfsigned
