@@ -73,7 +73,7 @@ This will produce output similar to:
   |  |--ec2-35-178-58-224.eu-west-2.compute.amazonaws.com
   |--@ungrouped:
 
-4. Copy the string "ec2-35-178-58-224.eu-west-2.compute.amazonaws.com" to the Ansible inventory file in andyc/ansible/inventory
+4. Copy the string (something like this) "ec2-35-178-58-224.eu-west-2.compute.amazonaws.com" to the Ansible inventory file in andyc/ansible/inventory
 
 Database settings for mezzanine CMS
 
