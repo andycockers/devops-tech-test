@@ -10,7 +10,7 @@ Add an AWS user with Programmatic access and give it access to AWS resources.
 
 Run aws configure to allow Terraform to use the AWS user credentials.
 
-To create a keypair in AWS for use with an EC2 instance:
+To create a keypair for use in AWS for use with an EC2 instance:
 
 1. If you don't already have one, run ssh-keygen to create a public/private keypair
 
@@ -18,11 +18,7 @@ To create a keypair in AWS for use with an EC2 instance:
 
 3. In the variables.tf file, add your public key
 
-To create compute and security rules:
-
-1. cd andyc/terraform/modules/ec2
-
-2. Edit variables.tf and change entries as appropriate. I have used eu-west-2. Bear in mind that the database in the next section should be in the same region as the compute resources.
+4. Edit variables.tf and change entries as appropriate. I have used eu-west-2. Bear in mind that the database in the next section should be in the same region as the compute resources.
 
 3. terraform init
 
